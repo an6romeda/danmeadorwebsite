@@ -1,0 +1,6 @@
+# Security policy for danmeador.work
+# https://securitytxt.org/
+
+Contact: mailto:an6romeda@pm.me
+Expires: 2027-02-10T00:00:00.000Z
+Preferred-Languages: en
