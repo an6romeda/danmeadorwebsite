@@ -1,0 +1,36 @@
+---
+layout: blog-base.html
+title: Office Scenes × Privacy Tips
+permalink: /blog/
+---
+
+<header class="blog-header">
+    <p class="blog-logo">Privacy Tips</p>
+    <h1 class="blog-title">Office Scenes × Privacy Tips</h1>
+    <p class="blog-subtitle">Tiny lessons from the shows we love. One scene. One tip. One GIF.</p>
+</header>
+
+<ul class="blog-list">
+{%- for post in collections.posts reversed -%}
+    <li class="blog-list-item">
+        <a href="{{ post.url }}">
+            <div class="blog-list-card">
+                {%- if post.data.thumbnail -%}
+                <img class="blog-list-gif" src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
+                {%- elsif post.data.gif -%}
+                <img class="blog-list-gif" src="{{ post.data.gif }}" alt="{{ post.data.title }}">
+                {%- endif -%}
+                <div class="blog-list-content">
+                    <p class="blog-list-show">{{ post.data.show }}</p>
+                    <h2 class="blog-list-title">{{ post.data.title }}</h2>
+                    <p class="blog-list-excerpt">{{ post.data.tip }}</p>
+                </div>
+            </div>
+        </a>
+    </li>
+{%- endfor -%}
+</ul>
+
+{%- if collections.posts.size == 0 -%}
+<p class="blog-empty">First tip coming soon.</p>
+{%- endif -%}

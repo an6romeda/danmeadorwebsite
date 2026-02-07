@@ -202,6 +202,10 @@ em {
     width: 100%;
 }
 
+.nav-blog {
+    color: var(--accent) !important;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;

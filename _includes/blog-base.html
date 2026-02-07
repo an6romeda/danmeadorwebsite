@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Dan Meador</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* ==========================================================================
+           Office Scenes × Privacy Tips
+           Snackable. Shareable. GIF-forward.
+           ========================================================================== */
+
+        :root {
+            --content-width: 600px;
+        }
+
+        /* Navigation */
+        .blog-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-lg) var(--space-2xl);
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .blog-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Container */
+        .blog-container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 120px var(--space-xl) 100px;
+        }
+
+        /* ==========================================================================
+           Post Card — The Snackable Unit
+           ========================================================================== */
+
+        .post-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .post-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        /* Show Tag */
+        .post-show {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-dim);
+            padding: 0.5em 1em;
+            border-radius: 6px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-show-icon {
+            font-size: 14px;
+        }
+
+        /* Header */
+        .post-header {
+            padding: var(--space-xl) var(--space-xl) var(--space-lg);
+        }
+
+        .post-title {
+            font-family: var(--font-sans);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* Hero GIF */
+        .post-gif {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Content Area */
+        .post-content {
+            padding: var(--space-xl);
+        }
+
+        /* Scene Recap */
+        .scene-recap {
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .scene-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Privacy Tip — The Punchline */
+        .privacy-tip {
+            position: relative;
+            padding-left: var(--space-lg);
+        }
+
+        .privacy-tip::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .tip-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .tip-text {
+            font-family: var(--font-sans);
+            font-size: var(--text-lg);
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Footer */
+        .post-footer {
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--bg-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .post-meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            letter-spacing: 0.02em;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            background: var(--bg-tertiary);
+            padding: 0.4em 0.8em;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .tag:hover {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* ==========================================================================
+           Blog Listing — The Feed
+           ========================================================================== */
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .blog-logo {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: var(--space-lg);
+        }
+
+        .blog-title {
+            font-family: var(--font-sans);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+
+        .blog-subtitle {
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            color: var(--text-tertiary);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blog-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2xl);
+        }
+
+        .blog-list-item {
+            /* Card styling inherited */
+        }
+
+        .blog-list-item a {
+            text-decoration: none;
+            display: block;
+        }
+
+        .blog-list-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .blog-list-card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-2px);
+        }
+
+        .blog-list-gif {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-list-content {
+            padding: var(--space-lg);
+        }
+
+        .blog-list-show {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .blog-list-title {
+            font-family: var(--font-sans);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 var(--space-sm);
+            line-height: 1.3;
+            transition: color 0.2s ease;
+        }
+
+        .blog-list-card:hover .blog-list-title {
+            color: var(--accent);
+        }
+
+        .blog-list-excerpt {
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .blog-empty {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-tertiary);
+            font-size: var(--text-base);
+        }
+
+        /* ==========================================================================
+           Responsive
+           ========================================================================== */
+
+        @media (max-width: 640px) {
+            .blog-container {
+                padding: 100px var(--space-md) 80px;
+            }
+
+            .post-header {
+                padding: var(--space-lg) var(--space-lg) var(--space-md);
+            }
+
+            .post-content {
+                padding: var(--space-lg);
+            }
+
+            .post-footer {
+                padding: var(--space-md) var(--space-lg);
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="blog-nav">
+        <a href="/">&larr; Back to site</a>
+        <a href="/blog/">Action Items</a>
+    </nav>
+
+    <main class="blog-container">
+        {{ content }}
+    </main>
+</body>
+</html>
