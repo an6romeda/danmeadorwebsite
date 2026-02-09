@@ -195,7 +195,9 @@
 
         // Preview
         const previewContainer = modal.querySelector('.modal-preview');
-        if (siteUrl) {
+        if (preview) {
+            previewContainer.innerHTML = `<img src="${preview}" alt="${title} preview">`;
+        } else if (siteUrl) {
             previewContainer.innerHTML = `
                 <div class="modal-preview-loading">Loading preview...</div>
                 <iframe src="${siteUrl}" title="${title} preview" loading="lazy"></iframe>
@@ -205,8 +207,6 @@
             iframe.addEventListener('load', () => {
                 loading.classList.add('hidden');
             });
-        } else if (preview) {
-            previewContainer.innerHTML = `<img src="${preview}" alt="${title} preview">`;
         } else {
             previewContainer.innerHTML = `<div class="modal-preview-placeholder">Preview coming soon</div>`;
         }
