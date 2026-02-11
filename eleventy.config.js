@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
 
   // Keep existing index.html as-is
   eleventyConfig.addPassthroughCopy("index.html");
+  eleventyConfig.addPassthroughCopy(".well-known");
 
   // Date filters
   eleventyConfig.addFilter("readableDate", (dateObj) => {
