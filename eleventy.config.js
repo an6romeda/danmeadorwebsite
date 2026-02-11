@@ -8,6 +8,19 @@ module.exports = function(eleventyConfig) {
   // Keep existing index.html as-is
   eleventyConfig.addPassthroughCopy("index.html");
 
+  // Date filters
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return new Date(dateObj).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  });
+
+  eleventyConfig.addFilter("dateISO", (dateObj) => {
+    return new Date(dateObj).toISOString().split("T")[0];
+  });
+
   return {
     dir: {
       input: ".",

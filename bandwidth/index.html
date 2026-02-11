@@ -1,0 +1,30 @@
+---
+layout: bandwidth-base.html
+title: Bandwidth
+permalink: /bandwidth/
+---
+
+<header class="bw-header">
+    <p class="bw-signal">// signal</p>
+    <h1 class="bw-title">Bandwidth</h1>
+    <p class="bw-subtitle">Where technology and law collide.</p>
+</header>
+
+<ul class="bw-list">
+{%- for post in collections.posts reversed -%}
+    <li class="bw-list-item">
+        <a href="{{ post.url }}" class="bw-list-link">
+            <div class="bw-list-date">{{ post.date | readableDate }}</div>
+            <h2 class="bw-list-title">{{ post.data.title }}</h2>
+            {%- if post.data.description -%}
+            <p class="bw-list-desc">{{ post.data.description }}</p>
+            {%- endif -%}
+        </a>
+    </li>
+{%- endfor -%}
+</ul>
+
+{%- assign postCount = collections.posts | size -%}
+{%- if postCount == 0 -%}
+<p class="bw-empty">Tuning in soon.</p>
+{%- endif -%}

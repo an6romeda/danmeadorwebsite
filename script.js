@@ -263,7 +263,7 @@
                 currentShelf.classList.remove('shelf-visible');
                 previousShelf.classList.remove('shelf-hidden');
                 previousShelf.classList.add('shelf-visible');
-                shelfToggle.textContent = 'Current';
+                shelfToggle.textContent = 'Latest';
                 shelfToggle.dataset.showing = 'previous';
             } else {
                 previousShelf.classList.add('shelf-hidden');

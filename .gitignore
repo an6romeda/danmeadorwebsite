@@ -1,3 +1,24 @@
 node_modules/
 _site/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
+
+# Windows artifacts
+nul
