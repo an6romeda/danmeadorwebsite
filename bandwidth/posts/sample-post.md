@@ -1,8 +1,8 @@
 ---
-title: "When Terms of Service Become Law"
+title: "The Handoff at 13"
 date: 2026-02-10
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A look at how click-wrap agreements are reshaping the legal landscape."
-tags: [privacy, contracts]
+description: "Roblox hands kids the keys. Google asks parents to let go. What happens to parental controls when your child hits the magic number."
+tags: [privacy, children, COPPA]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

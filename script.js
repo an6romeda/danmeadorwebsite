@@ -195,9 +195,13 @@
 
         // Preview
         const previewContainer = modal.querySelector('.modal-preview');
-        if (preview) {
+        if (preview === 'none') {
+            previewContainer.style.display = 'none';
+        } else if (preview) {
+            previewContainer.style.display = '';
             previewContainer.innerHTML = `<img src="${preview}" alt="${title} preview">`;
         } else {
+            previewContainer.style.display = '';
             previewContainer.innerHTML = `<div class="modal-preview-placeholder">Preview coming soon</div>`;
         }
 
@@ -209,7 +213,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 Visit Site
             </a>`;
-        } else {
+        } else if (card.dataset.project !== 'danmeadorwork') {
             linksHtml += `<span class="btn-site disabled">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 Visit Site
