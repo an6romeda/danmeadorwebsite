@@ -1,0 +1,24 @@
+---
+layout: bandwidth-base.html
+---
+
+<article class="bw-article">
+    <div class="bw-post-date">{{ date | readableDate }}</div>
+    <h1 class="bw-post-title">{{ title }}</h1>
+
+    {%- if tags.size > 0 -%}
+    <div class="bw-post-tags">
+        {%- for tag in tags -%}
+            {%- unless tag == "posts" -%}
+            <span class="bw-tag">{{ tag }}</span>
+            {%- endunless -%}
+        {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    <div class="bw-prose">
+        {{ content }}
+    </div>
+
+    <a href="/bandwidth/" class="bw-back">&larr; All posts</a>
+</article>

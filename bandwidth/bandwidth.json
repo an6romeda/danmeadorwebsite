@@ -1,0 +1,4 @@
+{
+  "layout": "bandwidth-base.html",
+  "permalink": "/bandwidth/{{ page.fileSlug }}/"
+}

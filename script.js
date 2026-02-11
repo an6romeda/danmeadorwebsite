@@ -195,19 +195,13 @@
 
         // Preview
         const previewContainer = modal.querySelector('.modal-preview');
-        if (preview) {
+        if (preview === 'none') {
+            previewContainer.style.display = 'none';
+        } else if (preview) {
+            previewContainer.style.display = '';
             previewContainer.innerHTML = `<img src="${preview}" alt="${title} preview">`;
-        } else if (siteUrl) {
-            previewContainer.innerHTML = `
-                <div class="modal-preview-loading">Loading preview...</div>
-                <iframe src="${siteUrl}" title="${title} preview" loading="lazy"></iframe>
-            `;
-            const iframe = previewContainer.querySelector('iframe');
-            const loading = previewContainer.querySelector('.modal-preview-loading');
-            iframe.addEventListener('load', () => {
-                loading.classList.add('hidden');
-            });
         } else {
+            previewContainer.style.display = '';
             previewContainer.innerHTML = `<div class="modal-preview-placeholder">Preview coming soon</div>`;
         }
 
@@ -219,7 +213,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 Visit Site
             </a>`;
-        } else {
+        } else if (card.dataset.project !== 'danmeadorwork') {
             linksHtml += `<span class="btn-site disabled">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 Visit Site
@@ -273,7 +267,7 @@
                 currentShelf.classList.remove('shelf-visible');
                 previousShelf.classList.remove('shelf-hidden');
                 previousShelf.classList.add('shelf-visible');
-                shelfToggle.textContent = 'Current';
+                shelfToggle.textContent = 'Latest';
                 shelfToggle.dataset.showing = 'previous';
             } else {
                 previousShelf.classList.add('shelf-hidden');

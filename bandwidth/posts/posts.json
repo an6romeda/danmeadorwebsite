@@ -1,0 +1,5 @@
+{
+  "layout": "bandwidth-post.html",
+  "tags": "posts",
+  "permalink": "/bandwidth/{{ page.fileSlug }}/"
+}
