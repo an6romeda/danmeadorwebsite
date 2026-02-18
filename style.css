@@ -32,7 +32,6 @@
 
     /* Layout */
     --max-width: 1100px;
-    --content-width: 720px;
 }
 
 /* Dark theme (default) */
@@ -96,8 +95,6 @@ body {
     color: var(--text-primary);
     background: var(--bg-primary);
     min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
     /* Signature dot grid pattern */
     background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 24px 24px;
@@ -141,7 +138,6 @@ em {
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .nav-inner {
@@ -200,10 +196,6 @@ em {
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
-}
-
-.nav-bandwidth {
-    color: var(--accent) !important;
 }
 
 .nav-toggle {
@@ -605,10 +597,6 @@ em {
     color: var(--accent);
 }
 
-.project-card {
-    cursor: pointer;
-}
-
 /* ==========================================================================
    Project Modal
    ========================================================================== */
@@ -726,23 +714,6 @@ em {
     justify-content: center;
     color: var(--text-tertiary);
     font-size: var(--text-sm);
-}
-
-.modal-preview-loading {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-tertiary);
-    font-size: var(--text-sm);
-    background: var(--bg-tertiary);
-    transition: opacity 0.3s ease;
-}
-
-.modal-preview-loading.hidden {
-    opacity: 0;
-    pointer-events: none;
 }
 
 .modal-description {
@@ -1000,7 +971,6 @@ em {
     text-align: center;
     padding: var(--space-3xl) var(--space-xl);
     border-top: 1px solid var(--border);
-    transition: border-color 0.3s ease;
 }
 
 .cta-content {
@@ -1090,7 +1060,6 @@ em {
 .footer {
     border-top: 1px solid var(--border);
     background: var(--bg-secondary);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-inner {

@@ -3,6 +3,8 @@ title: "The Handoff at 13"
 date: 2026-02-10
 description: "Roblox hands kids the keys. Google asks parents to let go. What happens to parental controls when your child hits the magic number."
 tags: [privacy, children, COPPA]
+eleventyExcludeFromCollections: true
+permalink: false
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
