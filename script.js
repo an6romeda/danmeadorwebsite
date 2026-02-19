@@ -178,15 +178,20 @@
         if (!modal) return;
 
         const title = card.querySelector('.project-title').textContent;
-        const label = card.querySelector('.project-label').textContent;
+        const labelEl = card.querySelector('.project-label');
+        const label = labelEl.textContent;
+        const labelClass = labelEl.classList.contains('project-label--live') ? 'project-label--live' :
+                           labelEl.classList.contains('project-label--building') ? 'project-label--building' : '';
         const tags = Array.from(card.querySelectorAll('.project-tags span')).map(t => t.textContent);
         const longDesc = card.dataset.longDesc || '';
         const siteUrl = card.dataset.siteUrl || '';
         const githubUrl = card.dataset.githubUrl || '';
         const preview = card.dataset.preview || '';
 
-        modal.querySelector('.modal-title').textContent = title;
-        modal.querySelector('.modal-label').textContent = label;
+        const modalLabel = modal.querySelector('.modal-label');
+        modalLabel.textContent = label;
+        modalLabel.className = 'modal-label';
+        if (labelClass) modalLabel.classList.add(labelClass);
         modal.querySelector('.modal-description').textContent = longDesc;
 
         // Tags
