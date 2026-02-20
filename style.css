@@ -563,6 +563,21 @@ em {
     50% { opacity: 0.6; transform: scale(0.85); }
 }
 
+.project-label--beta::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+    animation: flash-beta 1.2s ease-in-out infinite;
+}
+
+@keyframes flash-beta {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.15; }
+}
+
 
 .project-title {
     font-size: var(--text-xl);
