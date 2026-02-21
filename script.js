@@ -181,7 +181,8 @@
         const labelEl = card.querySelector('.project-label');
         const label = labelEl.textContent;
         const labelClass = labelEl.classList.contains('project-label--live') ? 'project-label--live' :
-                           labelEl.classList.contains('project-label--building') ? 'project-label--building' : '';
+                           labelEl.classList.contains('project-label--building') ? 'project-label--building' :
+                           labelEl.classList.contains('project-label--beta') ? 'project-label--beta' : '';
         const tags = Array.from(card.querySelectorAll('.project-tags span')).map(t => t.textContent);
         const longDesc = card.dataset.longDesc || '';
         const siteUrl = card.dataset.siteUrl || '';
