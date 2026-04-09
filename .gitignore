@@ -22,3 +22,12 @@ Thumbs.db
 
 # Windows artifacts
 nul
+
+# Private Archives
+data/
+
+# Local Testing
+.pytest_cache/
+
+# Large/Unused Originals
+Headshot.jpg

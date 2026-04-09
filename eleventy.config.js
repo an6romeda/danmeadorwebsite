@@ -3,7 +3,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("script.js");
   eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("Headshot.jpg");
 
   // Keep existing index.html as-is
   eleventyConfig.addPassthroughCopy("index.html");
